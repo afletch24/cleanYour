@@ -1594,7 +1594,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .3rem;
-  color: #FFFFFF !important;
+  color: #9acbe6 !important;
   background: transparent;
   position: relative;
   top: 36px;
@@ -2546,7 +2546,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
   padding: 20px;
   margin-top: 30px;
   color: #ffffff;
-  display: none;
+  /* display: none; */
 }
 .signUpForm input {
   margin: auto;
@@ -2554,7 +2554,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
   background-color: rgba(255, 255, 255, .2);
   color: rgba(255, 255, 255, .8);
 }
-#lsignUpSubmit {
+#signUpSubmit {
   margin-bottom:0;
   background-color: #9de2a6;
   border-color: #9de2a6;
@@ -2580,6 +2580,18 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
  *  15. footer styles - (_site-layout.scss)
  *
  * ------------------------------------------------------------------- */
+
+#footer {
+  width: 100%;
+  height:100px;
+  color: #374d5a;
+  margin-left: 40px;
+}
+#footerLogo {
+  margin-top: 2%;
+  width:170px;
+  height:65px;
+}
 
 footer {
   padding-top: 9rem;

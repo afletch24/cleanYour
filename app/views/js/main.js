@@ -36,9 +36,32 @@
 	};
 
 	//Form
-	$("#signUp").on("click", function(){
-		$("signUpForm").css("display","inline");
-	})
+	
+	
+	// $("#signUp").on("click", function(){
+	// 	$("#signUpForm").css("display", "none");
+	// });
+	
+	$("#signUpSubmit").on("click", function(){
+		event.preventDefault();
+		var signUpInfo = {
+			name: $("#name").val(),
+			email: $("#email").val()
+		}
+		console.log(signUpInfo.name);
+		$.post("/api/users", signUpInfo, function(){
+			console.log("created a new user with the name: " + signUpInfo.name + " ane the email: " + signUpInfo.email);
+			
+
+			alert("Welcome " + signUpInfo.name + "!");
+			// $("#response").html("<p>Welcome" + signUpInfo.name + "!</p>");
+		})
+
+	});
+
+
+
+
 
 
 	/* Mobile Menu

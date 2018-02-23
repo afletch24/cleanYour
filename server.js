@@ -18,7 +18,7 @@ var router = express.Router();
 
 
 app.use(routes);
-
+app.use(express.static("app/views"));
 // START THE SERVER
 // =============================================================================
 app.listen(port);
