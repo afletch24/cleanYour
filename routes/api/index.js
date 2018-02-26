@@ -10,6 +10,6 @@ router.use(function(req, res, next) {
 
 // Routes
 router.use("/users", userRoutes);
-// router.use("/projects", projectsRoutes);
+// router.use("/settings", settingsRoutes);
 
 module.exports = router;

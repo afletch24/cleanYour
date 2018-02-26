@@ -2541,14 +2541,14 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
   background-image: url("../images/google-play.png");
 }
 
-.signUpForm {
+#signUpForm {
   border: 2px solid #ffffff;
   padding: 20px;
   margin-top: 30px;
   color: #ffffff;
   /* display: none; */
 }
-.signUpForm input {
+#signUpForm input {
   margin: auto;
   margin-bottom: 15px;
   background-color: rgba(255, 255, 255, .2);

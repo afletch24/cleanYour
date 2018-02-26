@@ -42,9 +42,9 @@ module.exports = {
 
         // save the user and check for errors
         user.save(function(err) {
-            if (err)
+            if (err){
                 res.send(err);
-
+            }
             res.json({ message: 'User created!' });
         });
     },

@@ -31,7 +31,7 @@ router.route('/:user_id')
 router
     .route("/email/:email") 
     .get(userController.findByEmail);
-    console.log("users.js api");
+    
 
 
 

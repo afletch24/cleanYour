@@ -35,28 +35,28 @@
 	  	});
 	};
 
-	//Form
+	//Sign Up Form
 	
-	
-	// $("#signUp").on("click", function(){
-	// 	$("#signUpForm").css("display", "none");
-	// });
-	
-	$("#signUpSubmit").on("click", function(){
+	$("#signUpForm").css("display", "none");
+
+
+	$("#signUpButton").on("click", function(){
 		event.preventDefault();
+		$("#signUpForm").css("display", "block");
+	});
+
+	$("#signUpSubmit").on("click", function(){
 		var signUpInfo = {
 			name: $("#name").val(),
 			email: $("#email").val()
 		}
-		console.log(signUpInfo.name);
 		$.post("/api/users", signUpInfo, function(){
-			console.log("created a new user with the name: " + signUpInfo.name + " ane the email: " + signUpInfo.email);
-			
-
-			alert("Welcome " + signUpInfo.name + "!");
-			// $("#response").html("<p>Welcome" + signUpInfo.name + "!</p>");
+			console.log("created a new user with the name: " + signUpInfo.name + " and the email: " + signUpInfo.email);
 		})
-
+		.then(
+			$("#signUpForm").css("display", "none")
+		
+		);
 	});
 
 
