@@ -12,6 +12,10 @@ var UserSchema   = new Schema({
         
         // match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
     },
+    Settings: [{
+        type: Schema.Types.ObjectId,
+        ref: "Setting"
+    }]
 });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userRoutes = require("./users.js");
-// const projectsRoutes = require("./projects.js");
+const settingsRoutes = require("./settings.js");
 
 router.use(function(req, res, next) {
     // do logging
@@ -10,6 +10,6 @@ router.use(function(req, res, next) {
 
 // Routes
 router.use("/users", userRoutes);
-// router.use("/settings", settingsRoutes);
+router.use("/settings", settingsRoutes);
 
 module.exports = router;

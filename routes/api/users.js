@@ -14,19 +14,6 @@ router.route('/:user_id')
     .put(userController.updateUser)
     .delete(userController.deleteUser)
         
-      
-    
-    // .delete(function(req, res) {
-    //     console.log("userr deleted by id");
-    //     User.remove({
-    //         _id: req.params.user_id
-    //     }, function(err, user) {
-    //         if (err)
-    //             res.send(err);
-
-    //         res.json({ message: 'Successfully deleted' });
-    //     });
-    // });
 
 router
     .route("/email/:email") 
