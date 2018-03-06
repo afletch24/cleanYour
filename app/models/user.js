@@ -1,7 +1,10 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
+const Setting = require("./setting.js");
+
 
 var UserSchema   = new Schema({
+
     name: {
         type: String,
         require: true
@@ -12,9 +15,9 @@ var UserSchema   = new Schema({
         
         // match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
     },
-    Settings: [{
-        type: Schema.Types.ObjectId,
-        ref: "Setting"
+    settingsList: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "settingsList"
     }]
 });
 

@@ -1,3 +1,5 @@
+
+
 /* ===================================================================
  * Dazzle - Main JS
  *
@@ -55,14 +57,54 @@
 		})
 		.then(
 			$("#signUpForm").css("display", "none")
-		
+			
 		);
 	});
 
 
+	//SettingsForm 
+
+	// For Development, id is the current user                  **** Need to Change Later 
+	var id = "5a9832bbb2d5280eaacf5f58";
+
+	$("document").ready(function(){
+		loadUser();
+
+	});
+
+	$("#settingsFormSubmit").on("click", function(){
+
+	});
 
 
+	var loadUser = function(){
+		
+		$.get("api/users", id, function(data){
+			console.log(data[0].name)
+				$("#nameCallBack").html("<p> Welcome " + data[0].name + "</p");
+		})
+	};
 
+	// var getSettings = function(req, res){
+	// 	var userName = req.body.name;
+
+	// 	$.get("")
+	// 	.then(function(data){
+	// 		var userSettings = [];
+
+	// 		for(var i=0; i < data[0].settings.length; i++){
+	// 			var oneSetting = {
+	// 				settingItem: data[0].settings[i].item
+	// 			}
+	// 			userSettings.push(oneSetting);
+	// 		}
+	// 		var allUserSettings = {
+	// 			key: userSettings
+	// 		}
+	// 			res.json(allUserSettings);
+    //             console.log(allUserSettings);
+	// 	});
+	// };
 
 	/* Mobile Menu
 	 * ---------------------------------------------------- */ 

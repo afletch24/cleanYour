@@ -1,61 +1,84 @@
 const db = require("../models");
 const Setting = require("../../app/models/setting.js");
+const User = require("../../app/models/user.js");
 var assert = require('assert');
+
+
+// For Development, id is the current user                  **** Need to Change Later 
+var id = "5a9832bbb2d5280eaacf5f58";
+
 
 module.exports = {
 
   // findAll: function(req, res){
+
+  //   console.log(req);
+  //   console.log(req.body);
+
   //   db.Setting
-  //     .find(req.query)
+  //     .find()
   //     .then(dbModel => res.json(dbModel))
   //     .catch(err => res.status(422).json(err));
   //     console.log("find all from controllers/settingsController");
   // },
 
-//Find all Settings
-    findById: function(req, res){
-     
-      console.log(req.params.id)
-     
-        db.Setting
-        .findById(req.params.id)
-        console.log(req.params.id)
-        .then(settings =>  res.json(settings) )
-        .catch(err => res.status(422).json(err));
-    },
 
-  
+  //Create a new setting for the current user 
   createSetting: function(req, res){
     db.Setting
-      var setObj = new Setting();      
-      setObj.phone = req.body.phone;  
-      setObj.ownerID = req.body.ownerID;
-      
-      var promise = setObj.save();
-      assert.ok(promise instanceof Promise);
+        var setting = new Setting();      // create a new instance of the Setting model
+        setting.item = req.body.item;     
+       
+        // save the user and check for errors
+        setting.save(function(err) {
+            if (err){ res.send(err); }
+        })
+        User.update({"_id": id}, {$push: {"settingsList": [setting]}}, function(err){
+          if(err){res.send(err)}
+          else {
+            res.json({message: "Added setting to user"})
+          }
+        });
+  },
 
-      promise.then(function(data){
-         
-        // res.json({ message: 'User created!' });
-        console.log("SUCCESS");
+  //Find all Settings
+  findById: function(req, res){
+    console.log("----------------------------------------")
+   
+   
+    db.User
+        .findOne({_id: req.params.id})
+        .populate("Setting")
+        .then(function(data){
+          // console.log("data")
+          // console.log(data.settingsList)
           
-        db.User.update({ _id: setObj.ownerID }, { $push: { "Setting": data._id }})
-        .then(dbModel => {
-            console.log(dbModel);
-            // console.log("Added project to user " + dbModel);
-            res.json(dbModel)
-          })
-      })
-      
+          // var userSettingIds = [];
+          
+          for(var i=0; i < data.settingsList; i++){
+            console.log("Inside the for loop")
+            // var userSettingInfo= {
+            //   item: data.settingsList[i]
+              
+            // }
+            // console.log("item: " +  item)
+            // console.log(userSettingIds)
 
-  }
-      
-      
+            console.log(i)
+          }
+          // userSettingIds.push( userSettingInfo);
+
+        })
+        .catch(err => res.status(422).json(err));
+  
+    // Setting
+    //   .findById(req.params.id)
+    //   console.log(req.params.id)
+    //   .then(settings =>  res.json(settings) )
+    //   .catch(err => res.status(422).json(err));
 
 
-
-
-
+  },
 
 
 
@@ -63,88 +86,3 @@ module.exports = {
 
 
 };
-    // createSetting: function(req, res) {
-    //   console.log("request:");
-    //   console.log(req.body.phone); 
-    //   console.log(req.body.ownerID); 
-    //   console.log("------------------------------------------------------------------");
-      
-      
-    //   db.Setting
-    //       var setObj = new Setting();      // create a new instance of the Userr model
-    //       setObj.phone = req.body.phone;  // set the users name (comes from the request)
-    //       setObj.ownerID = req.body.ownerID;
-    //       setObj.save(function(err){
-
-    //           console.log("SAVED");
-    //           console.log(setObj.phone);
-    //           console.log(setObj.ownerID);
-    //           console.log(setObj._id);
-
-    //       })
-    //     db.Setting
-    //       .findByIdAndUpdate(setObj._id, {$push: { "Setting": setObj.ownerID }})
-    //       .then(dbModel => res.json(dbModel))
-    //       .catch(err => res.status(422).json(err));
-          
-      // .then(dbModel => {
-      //       console.log(dbModel);
-      //       // console.log("Added project to user " + dbModel);
-      //       res.json(dbModel)
-      // })
-
-
-
-    // },
-
-
-    //  updateUser: function(req, res){
-    //     db.User
-    //     .findOneAndUpdate({ _id: req.params.user_id }, req.body)
-    //     .then(dbModel => res.json(dbModel))
-    //     .catch(err => res.status(422).json(err));
-
-    //     {$push: { "Setting": setObj._id }}
-    // },
-
-
-        //   console.log(setObj);
-        //   console.log("SAVED");
-        //     db.Setting
-        //     // .find({_id: req.body.ownerID})
-        //     .findOneAndUpdate({ _id: setObj.ownerID }, {$push: { "Setting": setObj._id }})
-        //     .then(dbModel => {
-        //       console.log(dbModel);
-        //       // console.log("Added project to user " + dbModel);
-        //       res.json(dbModel)
-        //     })
-
-        //     .catch(err => res.status(422).json(err));
-            
-        // })
-        
-        
-        
-        
-        
-        
-        
-        
-        // .then(dbModel => {
-        //   console.log("created project " + dbModel);
-        //   console.log("ownerID " + req.body.ownerID);
-
-        //   db.Setting
-        //   // .find({_id: req.body.ownerID})
-        //   .findOneAndUpdate({ _id: req.body.ownerID }, {$push: { "Setting": dbModel._id }})
-        //   .then(dbModel => {
-        //     console.log(dbModel);
-        //     // console.log("Added project to user " + dbModel);
-        //     res.json(dbModel)
-        //   })
-
-        //   .catch(err => res.status(422).json(err));
-        //   })
-    
-
-

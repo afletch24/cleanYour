@@ -1,19 +1,509 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
 
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>CleanYour</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+   <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/settings.css">
+   
+
+    <!-- script
+   ================================================== -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </head>
-<body>
+
+<body id="top">
+
+    <!-- header 
+   ================================================== -->
+   <header id="header" class="row">   
+
+   		<div class="header-logo">
+              <a href="index.html">CleanYour</a>  
+            <!-- <h1>  CleanYour </h1> -->
+	    </div>
+
+	   	<nav id="header-nav-wrap">
+			<ul class="header-main-nav">
+				<li class="current"><a href="./index.html" title="home">Home</a></li>
+                 <li><a class="smoothscroll"  href="#" title="about">Log Out</a></li> 
+				
+			</ul>
+
+            
+		</nav>
+
+		<a class="header-menu-toggle" href="#"><span>Menu</span></a>    	
+   	
+   </header> <!-- /header -->
+
+
+   <!-- home
+   ================================================== -->
+     <section id="home" data-parallax="scroll" data-image-src="images/desk2.jpg" data-natural-width=3000 data-natural-height=1800>
+
+        <div class="overlay"></div>
+        <div class="home-content">        
+
+            <div class="row contents">                     
+                <div class="home-content-right settings">
+
+                    <h3 id="nameCallBack" data-aos="fade-up"> </h3>
+                    <h1 class= "settings" data-aos="fade-up">
+                        Personalize your cleaning reminders to fit your lifestyle. <br>
+                        
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div> <!-- end home-content -->
+
+        <div class="home-scrolldown">
+            <a href="#about" class="scroll-icon smoothscroll">
+                <span>Scroll Down</span>
+                <i class="icon-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </section> <!-- end home -->  
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about">
+
+        <div class="row about-intro">
+
+
+            <div class="col-four">
+                <h1 class="intro-header" data-aos="fade-up">CleanYour What?</h1>
+            </div>
+            <div class="col-eight">
+                <p class="lead" data-aos="fade-up">
+                    Excepteur enim magna veniam labore veniam sint. Ex aliqua esse proident ullamco voluptate. Nisi nisi nisi aliqua eiusmod dolor dolor proident deserunt occaecat elit Lorem reprehenderit. Id culpa veniam ex aliqua magna elit pariatur do nulla. Excepteur enim magna veniam labore veniam sint.
+                </p>
+            </div>                       
+            
+        </div>
 
 
 
 
-<h1> Settings page</h1>
+
+ 
+        <div class="row about-features">
+
+            <div class="features-list block-1-2 block-m-1-2 block-mob-full group">
+
+                <div class="bgrid feature settingsForm" data-aos="fade-up">	
+
+                    <span class="icon"><i class="icon-image"></i></span>            
+
+                    <div class="service-content">	
+
+                        <h3>Cell Phone </h3>  
+
+                         <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p> 
+                        
+                    </div> 	         	 
+
+                    </div> 
+
+                    <div class="bgrid feature" data-aos="fade-up">	
+
+                        <span class="icon"><i class="icon-image"></i></span>                          
+
+                    <div class="service-content settingsFormBlock">	
+                        <h3>Remote Control</h3>  
+
+                        <div id="accordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Frequency
+                                    </button>
+                                </h5>
+                                </div>
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+
+                                   <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">1 / Day</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">1 / Week</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">2 / Month</label>
+                                    </div>
+
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Time of Day
+                                    </button>
+                                </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">9:00am </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">12:00pm</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">7:00pm</label>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <button id="settingsFormSubmit" > Submit Changes </button>
+                        
+                    </div>	                          
+
+                </div>
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-paint-brush"></i></span>		            
+
+                    <div class="service-content">
+                        <h3>Door Knobs + Handles </h3>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p> 
+                            
+                    </div> 	            	               
+
+                </div> 
+
+                    <div class="bgrid feature" data-aos="fade-up">
+
+                        <span class="icon"><i class="icon-file"></i></span>	              
+
+                    <div class="service-content">
+                        <h3>Credit Card</h3>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p> 
+                        
+                    </div>                
+
+                    </div> 
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-sliders"></i></span>	            
+
+                    <div class="service-content">	
+                        <h3>Ear Buds/ Headphones</h3>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p>                            
+                    </div>	               
+
+                </div> 
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-gift"></i></span>	   	           
+
+                    <div class="service-content">
+                        <h3>Kitchen Sponge </h3>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p> 
+                            
+                    </div>	               
+
+                </div> 
+
+            </div> 
+
+        </div>  
+        <!-- end about-features -->
+
+
+ 
+        <!-- <div class="row about-how">
+          
+            <h1 class="intro-header" data-aos="fade-up">How CleanYour Works?</h1>           
+
+            <div class="about-how-content" data-aos="fade-up">
+                <div class="about-how-steps block-1-2 block-tab-full group">
+
+                    <div class="bgrid step" data-item="1">
+                        <h3>Sign-Up</h3>
+                        <p>
+                          Click the sign-up button below and enter your name and email. </p> 
+                    </div>
+
+                    <div class="bgrid step" data-item="2">
+                        <h3>Personalize</h3>
+                        <p>
+                            Customize your cleaning reminders to your desires to perfectly fit your lifestyle.
+                        </p> 
+                    </div>               
+               
+                    <div class="bgrid step" data-item="3">
+                        <h3>Verify</h3>
+                        <p>
+                            Verify your email account and personal settings. 
+                        </p> 
+                    </div>
+
+                    <div class="bgrid step" data-item="4">
+                        <h3>Enjoy</h3>
+                        <p>
+                            Receive your first cleaning reminder and breathe easy knowing that CleanYour is helping you live cleaner one reminder at a time!
+                        </p> 
+                    </div>  
+
+                </div>           
+           </div> 
+
+        </div>   -->
+        <!-- end about-how -->
+
+
+ 
+        <!-- <div id="grassRow" class="row about-bottom-image">
+
+           <img src="images/grass.png" >
+                 
+                
+
+        </div>  
+        
+    </section>   -->
+    <!-- end about -->  
+   
+
+    <!-- pricing
+    ================================================== -->
+     <!-- <section id="pricing">
+        <div class="row pricing-content">
+
+            <div class="col-four pricing-intro">
+                <h1 class="intro-header" data-aos="fade-up">Our Pricing Options</h1>
+
+                <p data-aos="fade-up">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
+                </p>
+            </div>
+
+            <div class="col-eight pricing-table">
+                <div class="row">
+
+                    <div class="col-six plan-wrap">
+                        <div class="plan-block" data-aos="fade-up"> 
+
+                            <div class="plan-top-part">
+                                <h3 class="plan-block-title">Lite Plan</h3>
+                                <p class="plan-block-price"><sup>$</sup>25</p>
+                                <p class="plan-block-per">Per Month</p>
+                            </div>
+
+                            <div class="plan-bottom-part">
+                                <ul class="plan-block-features">
+                                    <li><span>3GB</span> Storage</li>
+                                    <li><span>10GB</span> Bandwidth</li>	                  
+                                    <li><span>5</span> Databases</li>		                  
+                                    <li><span>30</span> Email Accounts</li>
+                                </ul>
+
+                                <a class="button button-primary large" href="">Get Started</a>
+                            </div>  
+                     
+                        </div>
+                    </div> 
+
+                    <div class="col-six plan-wrap">
+                        <div class="plan-block primary" data-aos="fade-up">
+
+                            <div class="plan-top-part">
+                                <h3 class="plan-block-title">Pro Plan</h3>
+                                <p class="plan-block-price"><sup>$</sup>50</p>
+                                <p class="plan-block-per">Per Month</p>
+                            </div>
+
+                            <div class="plan-bottom-part">
+                                <ul class="plan-block-features">
+                                    <li><span>5GB</span> Storage</li>
+                                    <li><span>20GB</span> Bandwidth</li>	                  
+                                    <li><span>15</span> Databases</li>		                  
+                                    <li><span>70</span> Email Accounts</li>
+                                </ul>
+
+                                <a class="button button-primary large" href="">Get Started</a>
+                            </div>
+
+                        </div>
+                    </div> 
+
+                </div>               
+            </div> 
+
+        </div> 
+    </section>   -->
+    <!-- end pricing -->
+
+
+    <!-- Testimonials Section
+    ================================================== -->
+    <!-- <section id="testimonials">
+
+        <div class="row">
+            <div class="col-twelve">
+                <h1 class="intro-header" data-aos="fade-up">What They Say About Our App.</h1>
+            </div>   		
+        </div>   	
+
+        <div class="row owl-wrap">
+
+            <div id="testimonial-slider"  data-aos="fade-up">
+
+                <div class="slides owl-carousel">
+
+                    <div>
+                        <p>
+                        Your work is going to fill a large part of your life, and the only way to be truly satisfied is
+                        to do what you believe is great work. And the only way to do great work is to love what you do.
+                        If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
+                        </p> 
+
+                        <div class="testimonial-author">
+                                <img src="images/avatars/user-02.jpg" alt="Author image">
+                                <div class="author-info">
+                                    Steve Jobs
+                                    <span class="position">CEO, Apple.</span>
+                                </div>
+                        </div>                 
+                    </div> 
+
+                    <div>
+                        <p>
+                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                        Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                        nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.    
+                        </p>
+
+                        <div class="testimonial-author">
+                                <img src="images/avatars/user-03.jpg" alt="Author image">
+                                <div class="author-info">
+                                    John Doe
+                                    <span>CEO, ABC Corp.</span>
+                                </div>
+                        </div>                                         
+                    </div> 
+
+                </div> 
+
+            </div>         
+            
+        </div> 
+
+    </section>  -->
+    <!-- end testimonials -->
+    
+
+    <!-- download
+    ================================================== -->
+    <!-- <section id="download">
+
+        <div class="row">
+            <div class="col-full">
+                <h1 class="intro-header"  data-aos="fade-up">Sign-Up with CleanYour Today!</h1>
+                <button id="signUpButton"  data-aos="fade-up" class="button button-primary cta">Sign Up</button>
+              
+                <div id="signUpForm" >
+             
+			        <input type="text" id="name" placeholder="name" autofocus/>
+                    
+                    <input type="email" id="email" placeholder="Email" />
+                   
+                    <button id="signUpSubmit">
+                  
+                        <span class="state">Submit</span>
+                        <div id="response">        
+                        </div>
+                    </button>
+
+                    
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>  -->
+    <!-- end download -->    
+
+
+
+    <div id="footer">
+        <img id="footerLogo" src="images/logo.png">
+    </div>
 
 
 
 
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
 

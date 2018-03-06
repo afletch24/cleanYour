@@ -5,92 +5,14 @@ const User = require('../models/user');
 
 const SettingSchema = new Schema({
     
-    phone: {
-        type: String
-    },
+    // _id: Schema.Types.ObjectId,
     
-    // phone: [
-    //     { 
-    //         frequency: String, 
-    //         time: String,
-    //         date: [
-    //             { 
-    //                 type: Date, 
-    //                 default: Date.now 
-    //             }
-    //         ],
-    //     }
-    // ],
-    
-    // handles: [
-    //     {
-    //         frequency: String,
-    //         time: String,
-    //         date: [
-    //             { 
-    //                 type: Date, 
-    //                 default: Date.now 
-    //             }
-    //         ],
-    //     }
-    // ],
+    item: String,
 
-    // vacuum :[
-    //     { 
-    //         frequency: String, 
-    //         time: String,
-    //         date: [
-    //             { 
-    //                 type: Date, 
-    //                 default: Date.now 
-    //             }
-    //         ],
-    //     }
-    // ],
-
-    // remote:[
-    //     { 
-    //         frequency: String, 
-    //         time: String,
-    //         date: [
-    //             { 
-    //                 type: Date, 
-    //                 default: Date.now 
-    //             }
-    //         ],
-    //     }
-    // ],
-
-    // creditCard: [
-    //     { 
-    //         frequency: String, 
-    //         time: String,
-    //         date: [
-    //             { 
-    //                 type: Date, 
-    //                 default: Date.now 
-    //             }
-    //         ],
-    //     }
-    // ],
-
-    // purse: [
-    //     { 
-    //         frequency: String, 
-    //         time: String,
-    //         date: [
-    //             { 
-    //                 type: Date, 
-    //                 default: Date.now 
-    //             }
-    //         ],
-    //     }
-    // ],
-    
-	ownerID: {
-		type: Schema.Types.ObjectId,
-		ref: 'User'
-	}
+	// owner: {
+	// 	type: Schema.Types.ObjectId,
+	// 	ref: 'User'
+    // }
 });
 
 // Create the Note model using the noteSchema

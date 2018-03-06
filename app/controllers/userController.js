@@ -13,13 +13,14 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
 
-    //Find One User by ID 
+    // Find One User by ID 
     findById: function(req, res){
         db.User
         .findOne({_id: req.params.user_id})
-        // .populate("Project")
+        .populate("Setting")
         .then(dbModel => {
             res.json(dbModel)
+            console.log("we got here")
         })
         .catch(err => res.status(422).json(err)); 
     },
@@ -37,17 +38,19 @@ module.exports = {
     createUser: function(req, res){
         db.User
         var user = new User();      // create a new instance of the Userr model
-        user.name = req.body.name;  // set the users name (comes from the request)
+        user.name = req.body.name;     // set the users name (comes from the request)
         user.email = req.body.email;  
 
         // save the user and check for errors
         user.save(function(err) {
-            if (err){
-                res.send(err);
-            }
+            if (err){ res.send(err); }
+
+
             res.json({ message: 'User created!' });
         });
     },
+
+
 
     //Update a User
     updateUser: function(req, res){
