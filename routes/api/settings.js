@@ -4,11 +4,11 @@ const settingsController = require("../../app/controllers/settingsController");
 // Matches with "/api/settings"
 router
   .route("/")
-  // .get(settingsController.findAll)
+  .get(settingsController.findAll)
   .post(settingsController.createSetting); 
 
 router
-  .route("/:id")
+  .route("/:setting_id")
   .get(settingsController.findById)
 
 

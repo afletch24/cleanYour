@@ -69,42 +69,47 @@
 
 	$("document").ready(function(){
 		loadUser();
+		// getSettings();
 
 	});
 
 	$("#settingsFormSubmit").on("click", function(){
 
 	});
-
+var userSettings = [];
 
 	var loadUser = function(){
 		
-		$.get("api/users", id, function(data){
-			console.log(data[0].name)
-				$("#nameCallBack").html("<p> Welcome " + data[0].name + "</p");
+		
+		$.get("api/users/", id, function(data){
+			// console.log(data)
+			// console.log(data[0].name)
+			$("#nameCallBack").html("<p> Welcome " + data[0].name + "</p");
+			var currentUser = {
+				name: data[0].name,
+				email: data[0].email,
+				settingsList: data[0].settingsList,
+				userId: data[0]._id
+			}
+
+			
+
+			for(var i=0; i < data[0].settingsList.length; i++){
+				var oneSetting = data[0].settingsList[i];
+				
+				$.get("api/settings/"+ oneSetting, function(data){
+					// console.log(data.item)
+					var setting = {
+						item: data.item
+					};
+					userSettings.push(setting);
+				})
+			}	
+			
 		})
+		
 	};
-
-	// var getSettings = function(req, res){
-	// 	var userName = req.body.name;
-
-	// 	$.get("")
-	// 	.then(function(data){
-	// 		var userSettings = [];
-
-	// 		for(var i=0; i < data[0].settings.length; i++){
-	// 			var oneSetting = {
-	// 				settingItem: data[0].settings[i].item
-	// 			}
-	// 			userSettings.push(oneSetting);
-	// 		}
-	// 		var allUserSettings = {
-	// 			key: userSettings
-	// 		}
-	// 			res.json(allUserSettings);
-    //             console.log(allUserSettings);
-	// 	});
-	// };
+console.log(userSettings)
 
 	/* Mobile Menu
 	 * ---------------------------------------------------- */ 

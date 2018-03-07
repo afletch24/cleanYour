@@ -15,25 +15,25 @@ module.exports = {
 
     // Find One User by ID 
     findById: function(req, res){
+        console.log(req.params)
         db.User
         .findOne({_id: req.params.user_id})
         .populate("Setting")
         .then(dbModel => {
             res.json(dbModel)
-            console.log("we got here")
         })
-        .catch(err => res.status(422).json(err)); 
+        .catch(err => res.status(422).json(err));   
     },
 
     //Find One User by Email 
-    findByEmail: function(req, res){
-        db.User
-        .findOne({email: req.params.user_email})
-        .then(users => {
-            res.join(users);
-        })
-        .catch(err => res.status(422).json(err));
-    },
+    // findByEmail: function(req, res){
+    //     db.User
+    //     .findOne({email: req.params.user_email})
+    //     .then(users => {
+    //         res.join(users);
+    //     })
+    //     .catch(err => res.status(422).json(err));
+    // },
 
     createUser: function(req, res){
         db.User

@@ -5,29 +5,42 @@ var assert = require('assert');
 
 
 // For Development, id is the current user                  **** Need to Change Later 
-var id = "5a9832bbb2d5280eaacf5f58";
+var id = "5a9832bbb2d5280eaacf5f58"; //Audrey
 
 
 module.exports = {
 
-  // findAll: function(req, res){
+  findAll: function(req, res){
+    db.Setting
+      .find({})
+      .then(dbModel => {
+        res.json(dbModel)
+      })
+      .catch(err => res.status(422).json(err));
+  }, 
 
-  //   console.log(req);
-  //   console.log(req.body);
+  //Find all Settings
+  findById: function(req, res){
+    // console.log("----------------------------------------")
+    // console.log("req.params  ...... id")
+    // console.log(req.params)
+    // console.log(req.params.setting_id)
+    // console.log("----------------------------------------")
 
-  //   db.Setting
-  //     .find()
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  //     console.log("find all from controllers/settingsController");
-  // },
+    db.Setting
+        .findOne({_id: req.params.setting_id})
+        .populate("Setting")
+        .then(setting => {res.json(setting)})
+        .catch(err => res.status(422).json(err));
+    
+  },
 
 
   //Create a new setting for the current user 
   createSetting: function(req, res){
     db.Setting
         var setting = new Setting();      // create a new instance of the Setting model
-        setting.item = req.body.item;     
+        setting.item = req.body.item;    
        
         // save the user and check for errors
         setting.save(function(err) {
@@ -41,44 +54,6 @@ module.exports = {
         });
   },
 
-  //Find all Settings
-  findById: function(req, res){
-    console.log("----------------------------------------")
-   
-   
-    db.User
-        .findOne({_id: req.params.id})
-        .populate("Setting")
-        .then(function(data){
-          // console.log("data")
-          // console.log(data.settingsList)
-          
-          // var userSettingIds = [];
-          
-          for(var i=0; i < data.settingsList; i++){
-            console.log("Inside the for loop")
-            // var userSettingInfo= {
-            //   item: data.settingsList[i]
-              
-            // }
-            // console.log("item: " +  item)
-            // console.log(userSettingIds)
-
-            console.log(i)
-          }
-          // userSettingIds.push( userSettingInfo);
-
-        })
-        .catch(err => res.status(422).json(err));
-  
-    // Setting
-    //   .findById(req.params.id)
-    //   console.log(req.params.id)
-    //   .then(settings =>  res.json(settings) )
-    //   .catch(err => res.status(422).json(err));
-
-
-  },
 
 
 

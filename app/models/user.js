@@ -17,7 +17,7 @@ var UserSchema   = new Schema({
     },
     settingsList: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "settingsList"
+        ref: "Setting"
     }]
 });
 

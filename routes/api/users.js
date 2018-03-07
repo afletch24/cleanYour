@@ -17,7 +17,7 @@ router.route('/:user_id')
 
 router
     .route("/email/:email") 
-    .get(userController.findByEmail);
+    // .get(userController.findByEmail);
     
 
 
