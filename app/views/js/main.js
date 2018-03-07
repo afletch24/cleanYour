@@ -76,7 +76,8 @@
 	$("#settingsFormSubmit").on("click", function(){
 
 	});
-var userSettings = [];
+
+	var userSettings = [];
 
 	var loadUser = function(){
 		
