@@ -5,7 +5,7 @@ var assert = require('assert');
 
 
 // For Development, id is the current user                  **** Need to Change Later 
-var id = "5a9832bbb2d5280eaacf5f58"; //Audrey
+var id = "5ac7d897d8329d3ccc2b0d05"; //Audrey
 
 
 module.exports = {
@@ -21,12 +21,6 @@ module.exports = {
 
   //Find all Settings
   findById: function(req, res){
-    // console.log("----------------------------------------")
-    // console.log("req.params  ...... id")
-    // console.log(req.params)
-    // console.log(req.params.setting_id)
-    // console.log("----------------------------------------")
-
     db.Setting
         .findOne({_id: req.params.setting_id})
         .populate("Setting")
@@ -47,6 +41,7 @@ module.exports = {
             if (err){ res.send(err); }
         })
         User.update({"_id": id}, {$push: {"settingsList": [setting]}}, function(err){
+          
           if(err){res.send(err)}
           else {
             res.json({message: "Added setting to user"})
@@ -55,9 +50,21 @@ module.exports = {
   },
 
 
+  deleteSetting: function(req, res){
+    db.Setting
+    .findById({_id: req.params.setting_id})
+    .then(dbModel => dbModel.remove())
+    .then(dbModel => {
+      User
+        .findOneAndUpdate({_id: id}, {$pull: {settingsList: req.params.setting_id}})
+        .catch(err => res.status(422).json(err));
+    })
+    .catch(err => res.status(422).json(err));
+    res.json({message: "Deleted setting"})
+}
 
-
-
+       
+  
 
 
 };

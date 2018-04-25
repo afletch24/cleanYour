@@ -65,12 +65,10 @@
 	//SettingsForm 
 
 	// For Development, id is the current user                  **** Need to Change Later 
-	var id = "5a9832bbb2d5280eaacf5f58";
+	var id = "5ac400e9c22ab915dd931955";
 
 	$("document").ready(function(){
 		loadUser();
-		// getSettings();
-
 	});
 
 	$("#settingsFormSubmit").on("click", function(){
@@ -80,11 +78,8 @@
 	var userSettings = [];
 
 	var loadUser = function(){
-		
-		
+		$("#settingsWell").val();
 		$.get("api/users/", id, function(data){
-			// console.log(data)
-			// console.log(data[0].name)
 			$("#nameCallBack").html("<p> Welcome " + data[0].name + "</p");
 			var currentUser = {
 				name: data[0].name,
@@ -92,25 +87,117 @@
 				settingsList: data[0].settingsList,
 				userId: data[0]._id
 			}
-
-			
-
-			for(var i=0; i < data[0].settingsList.length; i++){
-				var oneSetting = data[0].settingsList[i];
-				
-				$.get("api/settings/"+ oneSetting, function(data){
-					// console.log(data.item)
-					var setting = {
-						item: data.item
-					};
-					userSettings.push(setting);
-				})
-			}	
+			if(currentUser.settingsList.length === 0){
+				$("#settingsContainerHeader").html("<h1>There are no settings currently saved.</h1>");
+			}else{
+				console.log(data[0].settingsList)
+				for(var i=0; i < data[0].settingsList.length; i++){
+					var oneSetting = data[0].settingsList[i];
+					
+					$.get("api/settings/"+ oneSetting, function(data){	
+						var setting = {
+							item: data.item,
+							id: data._id,
+							this: this
+						};
+						userSettings.push(setting);	
+						popSetting(setting);
+					})	
+				}	
+				$("#settingsContainerHeader").html("<h1 class='intro-header'>"+currentUser.name+",  you currently have " + data[0].settingsList.length + " CleanYour Reminders </h1>")
+			}
 			
 		})
 		
 	};
-console.log(userSettings)
+
+	// <div class="home-scrolldown">
+    //         <a href="#about" class="scroll-icon smoothscroll">
+    //             <span>Scroll Down</span>
+    //             <i class="icon-arrow-right" aria-hidden="true"></i>
+    //         </a>
+    //     </div>
+
+
+
+	var popSetting = function(data){
+		
+		// console.log(data)
+		// $("#settingsContainerHeader").after(
+		// 	"<div class='settingsBlock'<h5>" + data.item + "</h5><button class='deleteSetting'><i class='icon-bin' aria-hidden='true'></i></button></div"
+		// );
+		// $(".settingsBlock").data("fade-up")
+		// $(".settingsBlock").addClass("features-list block-1-3 block-m-1-2 block-mob-full group")
+		// $(".settingsBlock").data("id", data.id)
+	
+		console.log(data)
+		$("#settingsWell").append(
+			"<div class='settingsBlock'<h5>" + data.item + "</h5><button class='deleteSetting'><i class='icon-bin' aria-hidden='true'></i></button></div"
+		);
+		$(".settingsBlock").data("fade-up")
+		$(".settingsBlock").addClass("features-list block-1-3 block-m-1-2 block-mob-full group")
+		$(".settingsBlock").data("id", data.id)
+
+	}
+
+	$("#settingsContainer").on("click", ".deleteSetting", 
+		function(){
+			console.log("Delete button clicked")
+			
+			var fetchId = $(".settingsBlock").data();
+			console.log(fetchId.id)
+			
+			deleteSetting(fetchId.id);
+			
+		// 	var $this = $(this);
+
+		// 	console.log($this)
+		// 	console.log("------------")
+		// var dataName = $this[0].previousSibling.data;
+		
+		
+	})
+
+	var deleteSetting = function(id){
+		$.delete("api/settings/"+ id, function(data){
+		})	
+		loadUser();
+	}
+
+
+	//helper ajax delete function
+	$.delete = function(url, data, callback, type){
+		if ( $.isFunction(data) ){
+			type = type || callback,
+				callback = data,
+				data = {}
+		}
+		return $.ajax({
+			url: url,
+			type: 'DELETE',
+			success: callback,
+			data: data,
+			contentType: type
+		});
+	}
+	//helper ajax put function
+	$.put = function(url, data, callback, type){
+		if ( $.isFunction(data) ){
+			type = type || callback,
+			callback = data,
+			data = {}
+		}
+		return $.ajax({
+			url: url,
+			type: 'PUT',
+			success: callback,
+			data: data,
+			contentType: type
+		});
+	}
+
+
+
 
 	/* Mobile Menu
 	 * ---------------------------------------------------- */ 

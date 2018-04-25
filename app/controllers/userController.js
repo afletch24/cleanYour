@@ -44,8 +44,6 @@ module.exports = {
         // save the user and check for errors
         user.save(function(err) {
             if (err){ res.send(err); }
-
-
             res.json({ message: 'User created!' });
         });
     },
@@ -66,6 +64,7 @@ module.exports = {
         db.User
         .findOne({_id: req.params.user_id})
         .then(dbModel => dbModel.remove())
+        res.json({ message: 'User Deleted!' });
     }
         // .delete(function(req, res) {
     //     console.log("userr deleted by id");

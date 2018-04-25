@@ -10,6 +10,7 @@ router
 router
   .route("/:setting_id")
   .get(settingsController.findById)
+  .delete(settingsController.deleteSetting)
 
 
   module.exports = router;
